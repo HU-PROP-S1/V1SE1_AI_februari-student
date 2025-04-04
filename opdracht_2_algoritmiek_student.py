@@ -1,4 +1,3 @@
-
 """
 Oriëntatie op AI
 
@@ -28,7 +27,6 @@ naam = ""
 klas = ""
 studentnummer = -1
 
-
 """
 1.  Sorteeralgoritme
     Hieronder staat de pseudocode van een sorteeralgoritme:
@@ -41,7 +39,7 @@ studentnummer = -1
     6.          swap_i = swap_i + 1
     7.    Wissel lst[i] en lst[swap_i] om
     8.    Herhaal stap 3 t/m 7 totdat i == j
-    
+
     1a. Handmatig toepassen
         Gegeven is de lijst l = [ 4, 3, 1, 2 ]. Geef de waardes die deze
         lijst aanneemt bij álle tussenstappen bij toepassing van
@@ -57,9 +55,10 @@ studentnummer = -1
             hieronder genaamd my_sort(lst).
 """
 
+
 def my_sort(lst):
     """
-    Hieronder staat de pseudocode van nog een sorteeralgoritme voor een lijst `lst` van natuurlijke getallen:
+    Hieronder staat nogmaals de pseudocode van een sorteeralgoritme voor een lijst `lst` van natuurlijke getallen:
 
     1. Ontvang lijst lst
     2. Herhaal voor elke index i in lst
@@ -68,7 +67,7 @@ def my_sort(lst):
     5.        Als lst[i] > lst[j]
     6.          swap_i = swap_i + 1
     7.    Wissel lst[i] en lst[swap_i] om
-    8.    Herhaal stap 3 t/m 7 totdat i == j
+    8.    Herhaal stap 3 t/m 7 totdat i == swap_i
 
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     Je moet de pseudocode volgen in je implementatie van het algoritme.
@@ -82,6 +81,7 @@ def my_sort(lst):
     """
     lst_sorted = None
     return lst_sorted
+
 
 """    
     1c. Best en worst case
@@ -114,18 +114,20 @@ def my_sort(lst):
 """
 """
 
+
 def rekenkundige_rij_recursief(start, step, length):
     """
-    Berekent en retourneert de recursieve rij (a_n = a_n-1 + c).
+    Berekent en retourneert het laatste element van de recursieve rij (a_n = a_n-1 + c).
 
     Args:
         start (int): De eerste term van de rij (a_0)
         step (int): Het verschil tussen opeenvolgende termen (c)
         length (int): De lengte van de rij (n)
     Returns:
-        int: De uitkomst van de rekenkundige rij a_n
+        int: Het laatste element (a_n) van de rekenkundige rij
 
     """
+
 
 """
 (Optioneel)
@@ -134,6 +136,7 @@ def rekenkundige_rij_recursief(start, step, length):
         genaamd my_sort_2(lst).
 
 """
+
 
 def my_sort_2(lst):
     """
@@ -172,6 +175,7 @@ import numpy as np
 import random
 import sys
 
+
 def __my_assert_args(function, args, expected_output, check_type=True):
     """
     Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
@@ -200,6 +204,7 @@ def test_id():
     assert studentnummer != -1, "Je moet je studentnummer nog invullen!"
     assert klas != "", "Je moet je klas nog invullen!"
 
+
 def test_my_sort():
     lst_test = random.choices(range(-99, 100), k=6)
     lst_copy = lst_test.copy()
@@ -209,12 +214,14 @@ def test_my_sort():
     assert lst_output == sorted(lst_test), \
         f"Fout: my_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 
+
 def test_my_sort_2():
     lst_test = random.choices(range(0, 100), k=6)
     lst_output = my_sort_2(lst_test)
 
     assert lst_output == sorted(lst_test), \
         f"Fout: my_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
+
 
 def test_rekenkundige_rij_recursief():
     testcase = [
@@ -228,6 +235,7 @@ def test_rekenkundige_rij_recursief():
     for case in testcase:
         __my_assert_args(rekenkundige_rij_recursief, case[0], case[1])
 
+
 def test_test_rekenkundige_rij_recursief_recursiveness():
     limit = sys.getrecursionlimit()
     sys.setrecursionlimit(50)
@@ -238,6 +246,7 @@ def test_test_rekenkundige_rij_recursief_recursiveness():
         return
     finally:
         sys.setrecursionlimit(limit)
+
 
 def __main():
     """ Test alle functies. """
@@ -275,8 +284,6 @@ def __main():
             print(ae)
 
     print("\x1b[0m")  # Reset tekstkleur
-
-
 
 
 if __name__ == '__main__':
