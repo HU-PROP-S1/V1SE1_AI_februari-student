@@ -38,7 +38,7 @@ studentnummer = -1
     5.        Als lst[i] > lst[j]
     6.          swap_i = swap_i + 1
     7.    Wissel lst[i] en lst[swap_i] om
-    8.    Herhaal stap 3 t/m 7 totdat i == j
+    8.    Herhaal stap 3 t/m 7 totdat i == swap_i
 
     1a. Handmatig toepassen
         Gegeven is de lijst l = [ 4, 3, 1, 2 ]. Geef de waardes die deze
