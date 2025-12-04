@@ -6,11 +6,8 @@ Oriëntatie op AI
 
 Oefening: statistiek
 
-(c) 2019 Hogeschool Utrecht,
-Tijmen Muller (tijmen.muller@hu.nl)
-
-Werk onderstaande functies uit. Elke functie krijgt een niet-lege en
-ongesorteerde lijst *lst* met gehele getallen (int) als argument.
+(c) 2025 Hogeschool Utrecht,
+Peter van den Berg (peter.vandenberg@hu.nl)
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
@@ -20,33 +17,19 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-
-def median(lst):
+def remove_dominated(m):
     """
-    Bepaal de mediaan van een lijst getallen.
+    Filtert matrix door gedomineerde strategieën te elimineren. 
+    LET OP: de functie dient alleen STRIKT gedomineerde strategieën te elimineren. 
+    Dit is wanneer de ene actie altijd hogere utility geeft dan de ander.
 
     Args:
-        lst (list): Een lijst met gehele getallen.
+        m list[list[tuple[int, int]]]: De matrix van tuples van int
 
     Returns:
-        float: De mediaan van de gegeven getallen.
+        list[list[tuple[int, int]]]: De gefilterde matrix
     """
-    return
 
-
-
-
-def rnge(lst):
-    """
-    Bepaal het bereik van een lijst getallen.
-
-    Args:
-        lst (list): Een lijst met gehele getallen.
-
-    Returns:
-        int: Het bereik van de gegeven getallen.
-    """
-    return
 
 
 """
@@ -79,36 +62,19 @@ def __my_assert_args(function, args, expected_output, check_type=True):
         assert output == expected_output, msg
 
 
-def test_rnge():
+def test_remove_dominated():
     testcases = [
-        (([4, 2, 5, 8, 6],), 6),
-        (([1, 3, 2, 4, 6, 2, 4, 2],), 5)
+        (([[(1, 1), (3, 3)],[(2, 2), (3, 0)]],), [[(1, 1), (3, 3)], [(2, 2), (3, 0)]]),
+        (([[(0, 3), (1, 1)],[(2, 2), (3, 2)]],), [[(2, 2), (3, 2)]]),
+        (([[(0, 3), (1, 0)],[(0, 2), (3, 0)]],), [[(0, 3)], [(0, 2)]]),
+        (([[(3, 0), (1, 1)],[(2, 2), (0, 3)]],), [[(1, 1)]]),
+        (([[(0, 3), (1, 1)],[(2, 2), (3, 0)]],), [[(2, 2)]]),
+        (([[(1, 1), (0, 3)],[(3, 0), (3, 3)]],), [[(3, 3)]]),
+        (([[(4, 4), (1, 1)],[(2, 2), (5, 0)]],), [[(4, 4)]])
     ]
 
     for case in testcases:
-        __my_assert_args(rnge, case[0], case[1])
-
-
-def test_median():
-    testcases = [
-        (([4, 2, 5, 8, 6],), 5.0),
-        (([1, 3, 4, 6, 4, 2],), 3.5),
-        (([1, 3, 4, 6, 2, 4, 2],), 3.0),
-        (([1, 3, 2, 4, 6, 2, 4, 2],), 2.5)
-    ]
-
-    for case in testcases:
-        __my_assert_args(median, case[0], case[1])
-
-
-def test_median_simulated():
-    import random
-    import statistics
-
-    for lst_size in range(1, 11):
-        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        __my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
-
+        __my_assert_args(remove_dominated, case[0], case[1])
 
 def __main():
     """ Test alle functies. """
@@ -118,12 +84,8 @@ def __main():
     try:
         print("\x1b[32m")   # Groene tekstkleur
 
-        test_median()
-        test_median_simulated()
-        print("Je functie median(lst) werkt goed!")
-
-        test_rnge()
-        print("Je functie rnge(lst) werkt goed!")
+        test_remove_dominated()
+        print("Je functie remove_dominated(m) werkt goed!")
 
         print("\nGefeliciteerd, alles lijkt te werken!")
 

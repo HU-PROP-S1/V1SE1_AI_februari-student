@@ -28,10 +28,10 @@ def gradient_descent(x, y, num_iterations=1000, learning_rate=0.0001):
     Returns:
         [float, float]: de berekende coefficienten
     """
+    n = len(x)  
     coefficients = [0, 0]
-    
-    return coefficients
 
+    return coefficients
 
 """
 ==========================[ HU TESTRAAMWERK ]================================
@@ -75,12 +75,13 @@ def test_gradient_descent():
     }
 
     testcases = [
-        ((data['presence'], data['grade'], 1), [0.00195707, 0.07867846]),
-        ((data['presence'], data['grade'], 10), [0.00402798, 0.07866434]),
-        ((data['presence'], data['grade'], 100), [0.02463723, 0.07842538]),
-        ((data['presence'], data['grade'], 1000), [0.22125887, 0.07614560]),
-        ((data['presence'], data['grade'], 10000), [1.48364100, 0.06150855]),
-        ((data['presence'], data['grade'], 100000), [2.40810075, 0.05078965]),
+        ((data['presence'], data['grade'], 1), [0.00106875, 0.06671125]),
+        ((data['presence'], data['grade'], 10), [0.0017250805547328813, 0.0853495859860294]),
+        ((data['presence'], data['grade'], 100), [0.005413509270166133, 0.0852927847242298]),
+        ((data['presence'], data['grade'], 1000), [0.042033257409484846, 0.08472863642441471]),
+        ((data['presence'], data['grade'], 10000), [0.38301565829600587, 0.0794756062562346]),
+        ((data['presence'], data['grade'], 100000), [2.1618476839980865, 0.052071674936483736]),
+        ((data['presence'], data['grade'], 524288), [2.8178099369653586, 0.041966198832538895]),
     ]
 
     for case in testcases:
