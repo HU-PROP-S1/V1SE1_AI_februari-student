@@ -10,7 +10,8 @@ Peter van den Berg (peter.vandenberg@hu.nl)
 
 Opdracht:
 Werk onderstaande functies uit, om de tegenstanders 'Always coorporate',
-'Alternate' en 'Suspicious tit for tat' te verslaan.
+'Alternate' en 'Suspicious tit for tat' te verslaan. 
+LET OP: zie Canas en slides voor meer uitleg!
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
