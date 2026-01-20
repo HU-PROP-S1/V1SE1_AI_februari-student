@@ -9,7 +9,7 @@ Opdracht: simulatie
 Peter van den Berg (peter.vandenberg@hu.nl)
 
 Opdracht:
-Werk onderstaande functies uit, om de tegenstanders 'Always coorporate',
+Werk onderstaande functies uit, om de tegenstanders 'Always cooperate',
 'Alternate' en 'Suspicious tit for tat' te verslaan. 
 LET OP: zie Canas en slides voor meer uitleg!
 
@@ -29,31 +29,31 @@ studentnummer = -1
 debuginfo = True
 
 """
-1. Implementatie is_always_coorporate
-    Implementeer onderstaande functie om te achterhalen of de tegenstander 'Always coorporate' is.
+1. Implementatie is_always_cooperate
+    Implementeer onderstaande functie om te achterhalen of de tegenstander 'Always cooperate' is.
 
 """
-def is_always_coorporate(my_history, opponent_history):
+def is_always_cooperate(my_history, opponent_history):
     """
-    Checkt of je tegenstander 'Always coorporate' is.
+    Checkt of je tegenstander 'Always cooperate' is.
 
     Args:
         my_history (list[bool]): Een lijst met jouw gespeelde acties in het verleden.
         opponent_history (list[bool]): Een lijst de door jouw tegenstander gespeelde acties in het verleden.
 
     Returns:
-        bool: True als je tegenstander 'Always coorporate' is, anders False.
+        bool: True als je tegenstander 'Always cooperate' is, anders False.
     """
     return
 
 """
-2. Implementatie play_against_always_coorporate
-    Implementeer onderstaande functie om de beste actie te spelen tegen 'Always coorporate'.
+2. Implementatie play_against_always_cooperate
+    Implementeer onderstaande functie om de beste actie te spelen tegen 'Always cooperate'.
 
 """
-def play_against_always_coorporate(my_history, opponent_history):
+def play_against_always_cooperate(my_history, opponent_history):
     """
-    Geeft de actie terug die gespeeld zal worden tegen 'Always coorporate' door jouw agent, 
+    Geeft de actie terug die gespeeld zal worden tegen 'Always cooperate' door jouw agent, 
     gegeven jouw en jouw tegenstanders' acties in het verleden.
 
     Args:
@@ -211,8 +211,8 @@ def strategy(my_history, opponent_history):
     # if is_final_round(my_history, opponent_history):
     #     return play_final_round(my_history, opponent_history)
     
-    if is_always_coorporate(my_history, opponent_history):
-        return play_against_always_coorporate(my_history, opponent_history)
+    if is_always_cooperate(my_history, opponent_history):
+        return play_against_always_cooperate(my_history, opponent_history)
     elif is_alternate(my_history, opponent_history):
         return play_against_alternate(my_history, opponent_history)
     elif is_sus_tit_for_tat(my_history, opponent_history):
@@ -220,12 +220,12 @@ def strategy(my_history, opponent_history):
     else:
         return play_against_unknown(my_history, opponent_history)
 
-def always_coorporate(my_history, opponent_history):
+def always_cooperate(my_history, opponent_history):
     """
-    Geeft de actie terug die 'Always coorporate' speelt.
+    Geeft de actie terug die 'Always cooperate' speelt.
 
     Args:
-        my_history (list[bool]): Een lijst met de gespeelde acties van 'Always coorporate' in het verleden.
+        my_history (list[bool]): Een lijst met de gespeelde acties van 'Always cooperate' in het verleden.
         opponent_history (list[bool]): Een lijst de door de tegenstander gespeelde acties in het verleden.
 
     Returns:
@@ -262,7 +262,7 @@ def sus_tit_for_tat(my_history, opponent_history):
     return opponent_history[-1]
 
 strategies = {
-    "Always coorporate": always_coorporate,
+    "Always cooperate": always_cooperate,
     "Alternate": alternate,
     "Suspicious tit for Tat": sus_tit_for_tat,
     "Jouw strategie": strategy
